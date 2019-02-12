@@ -1,10 +1,18 @@
 const http = require('http');
 
 const server = http.createServer((req, res) => {
-  const { url, method } = req;
+  const { url, method, body } = req;
   
   if (method === 'POST') {
-    if(/\/api\/webcrawler/.test(url))
+    let body = ''
+    if(/\/api\/webcrawler/.test(url)){
+      req.on('data', chunk => {
+        body += chunk.toString()
+      })
+      req.on('end', () => {
+        res.end('ok');
+      })
+    }
   }
 })
 
