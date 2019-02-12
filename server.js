@@ -1,7 +1,7 @@
 const http = require('http');
 
 const server = http.createServer((req, res) => {
-  const { url, method, body } = req;
+  const { url, method } = req;
   
   if (method === 'POST') {
     let body = ''
