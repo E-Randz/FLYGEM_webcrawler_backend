@@ -1,4 +1,5 @@
 const http = require('http');
+const PORT = process.env.PORT || 9090
 
 const server = http.createServer((req, res) => {
   const { url, method } = req;
@@ -16,4 +17,4 @@ const server = http.createServer((req, res) => {
   }
 })
 
-server.listen(9090, () => console.log('server listening on port 9090'));
+server.listen(PORT, () => console.log('server listening on port 9090'));
